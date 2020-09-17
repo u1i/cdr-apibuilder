@@ -1,0 +1,71 @@
+{
+	"schemaVersion": "4",
+	"info": {
+		"name": "listDirectDebits"
+	},
+	"parameter": {
+		"properties": {
+			"params": {
+				"type": "object",
+				"description": "The parameters from the endpoint."
+			},
+			"request": {
+				"type": "object",
+				"description": "The HTTP request."
+			},
+			"config": {
+				"type": "object",
+				"description": "The service's configuration"
+			},
+			"env": {
+				"type": "object",
+				"description": "The host OS environment"
+			}
+		},
+		"additionalProperties": false,
+		"required": [
+			"params",
+			"request",
+			"config",
+			"env"
+		]
+	},
+	"start": "http.setresponse.1",
+	"nodes": {
+		"http.setresponse.1": {
+			"type": "nodehandler://axway-flow/http",
+			"method": "setresponse",
+			"name": "Set HTTP Response",
+			"parameters": [
+				{
+					"name": "status",
+					"value": "200",
+					"type": "number",
+					"metaName": "Status",
+					"metaDescription": "The HTTP status code"
+				},
+				{
+					"name": "headers",
+					"value": "{\n    \"x-v\": \"dolor deserunt occaecat\",\n    \"x-fapi-interaction-id\": \"commodo eu elit do id\"\n}",
+					"type": "object",
+					"metaName": "Headers",
+					"metaDescription": "Key-value pairs of headers"
+				},
+				{
+					"name": "body",
+					"value": "{\n    \"data\": {\n        \"directDebitAuthorisations\": [\n            {\n                \"accountId\": \"magna proident\",\n                \"authorisedEntity\": {\n                    \"description\": \"aliquip dolore exercitation Lorem\",\n                    \"financialInstitution\": \"ad quis nulla Ut laborum\",\n                    \"abn\": \"amet sint ea exerc\",\n                    \"acn\": \"culpa ea\",\n                    \"arbn\": \"ullamco\"\n                },\n                \"lastDebitDateTime\": \"dolore nulla\",\n                \"lastDebitAmount\": \"tempor pariatur minim\"\n            }\n        ]\n    },\n    \"links\": {\n        \"self\": \"velit laboris\",\n        \"first\": \"nisi proident fugiat\",\n        \"prev\": \"consectetur ea\",\n        \"next\": \"quis commod\",\n        \"last\": \"consectetur sint voluptate nostrud Excepteur\"\n    },\n    \"meta\": {\n        \"totalRecords\": -142940,\n        \"totalPages\": -45758662\n    }\n}",
+					"type": "object",
+					"metaName": "Body",
+					"metaDescription": "The response payload"
+				}
+			],
+			"outputs": {
+				"next": {
+					"context": "$.response",
+					"metaName": "Next"
+				}
+			},
+			"metaMethod": "Set HTTP Response"
+		}
+	}
+}

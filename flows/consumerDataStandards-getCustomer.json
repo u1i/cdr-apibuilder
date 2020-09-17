@@ -1,0 +1,71 @@
+{
+	"schemaVersion": "4",
+	"info": {
+		"name": "getCustomer"
+	},
+	"parameter": {
+		"properties": {
+			"params": {
+				"type": "object",
+				"description": "The parameters from the endpoint."
+			},
+			"request": {
+				"type": "object",
+				"description": "The HTTP request."
+			},
+			"config": {
+				"type": "object",
+				"description": "The service's configuration"
+			},
+			"env": {
+				"type": "object",
+				"description": "The host OS environment"
+			}
+		},
+		"additionalProperties": false,
+		"required": [
+			"params",
+			"request",
+			"config",
+			"env"
+		]
+	},
+	"start": "http.setresponse.1",
+	"nodes": {
+		"http.setresponse.1": {
+			"type": "nodehandler://axway-flow/http",
+			"method": "setresponse",
+			"name": "Set HTTP Response",
+			"parameters": [
+				{
+					"name": "status",
+					"value": "200",
+					"type": "number",
+					"metaName": "Status",
+					"metaDescription": "The HTTP status code"
+				},
+				{
+					"name": "headers",
+					"value": "{\n    \"x-v\": \"et\",\n    \"x-fapi-interaction-id\": \"dolore adipisicing\"\n}",
+					"type": "object",
+					"metaName": "Headers",
+					"metaDescription": "Key-value pairs of headers"
+				},
+				{
+					"name": "body",
+					"value": "{\n    \"data\": {\n        \"customerUType\": \"person\",\n        \"person\": {\n            \"lastUpdateTime\": \"Ut commodo reprehenderit\",\n            \"firstName\": \"officia do ullamco Ut\",\n            \"lastName\": \"ut laborum proident\",\n            \"middleNames\": [\n                \"do\"\n            ],\n            \"prefix\": \"in\",\n            \"suffix\": \"Lorem fugiat consectetur dolor velit\",\n            \"occupationCode\": \"Excepteur non culpa est\"\n        },\n        \"organisation\": {\n            \"lastUpdateTime\": \"Lorem cillum pariatur\",\n            \"agentFirstName\": \"laborum\",\n            \"agentLastName\": \"consectetur cupidatat\",\n            \"agentRole\": \"anim dolor eiusmod\",\n            \"businessName\": \"dolo\",\n            \"legalName\": \"ullamco Excepteur commodo veniam ad\",\n            \"shortName\": \"Ut commodo ea in\",\n            \"abn\": \"non ut in e\",\n            \"acn\": \"irure eiusmod\",\n            \"isACNCRegistered\": true,\n            \"industryCode\": \"n\",\n            \"organisationType\": \"SOLE_TRADER\",\n            \"registeredCountry\": \"in tempor amet non\",\n            \"establishmentDate\": \"dolore dolor\"\n        }\n    },\n    \"links\": {\n        \"self\": \"in reprehenderit pariatur\"\n    },\n    \"meta\": {}\n}",
+					"type": "object",
+					"metaName": "Body",
+					"metaDescription": "The response payload"
+				}
+			],
+			"outputs": {
+				"next": {
+					"context": "$.response",
+					"metaName": "Next"
+				}
+			},
+			"metaMethod": "Set HTTP Response"
+		}
+	}
+}

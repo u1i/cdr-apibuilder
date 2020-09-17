@@ -1,0 +1,71 @@
+{
+	"schemaVersion": "4",
+	"info": {
+		"name": "getCustomerDetail"
+	},
+	"parameter": {
+		"properties": {
+			"params": {
+				"type": "object",
+				"description": "The parameters from the endpoint."
+			},
+			"request": {
+				"type": "object",
+				"description": "The HTTP request."
+			},
+			"config": {
+				"type": "object",
+				"description": "The service's configuration"
+			},
+			"env": {
+				"type": "object",
+				"description": "The host OS environment"
+			}
+		},
+		"additionalProperties": false,
+		"required": [
+			"params",
+			"request",
+			"config",
+			"env"
+		]
+	},
+	"start": "http.setresponse.1",
+	"nodes": {
+		"http.setresponse.1": {
+			"type": "nodehandler://axway-flow/http",
+			"method": "setresponse",
+			"name": "Set HTTP Response",
+			"parameters": [
+				{
+					"name": "status",
+					"value": "200",
+					"type": "number",
+					"metaName": "Status",
+					"metaDescription": "The HTTP status code"
+				},
+				{
+					"name": "headers",
+					"value": "{\n    \"x-v\": \"enim exercitation ut\",\n    \"x-fapi-interaction-id\": \"in fugiat quis\"\n}",
+					"type": "object",
+					"metaName": "Headers",
+					"metaDescription": "Key-value pairs of headers"
+				},
+				{
+					"name": "body",
+					"value": "{\n    \"data\": {\n        \"customerUType\": \"person\",\n        \"person\": {\n            \"lastUpdateTime\": \"culpa\",\n            \"firstName\": \"minim do\",\n            \"lastName\": \"consequat ali\",\n            \"middleNames\": [\n                \"commodo culpa\"\n            ],\n            \"prefix\": \"deserunt eu sed\",\n            \"suffix\": \"nulla qui anim in fugiat\",\n            \"occupationCode\": \"incididunt dolore in\",\n            \"phoneNumbers\": [\n                {\n                    \"isPreferred\": false,\n                    \"purpose\": \"MOBILE\",\n                    \"countryCode\": \"sunt minim enim irure\",\n                    \"areaCode\": \"labore pariatur minim\",\n                    \"number\": \"dolore nostrud\",\n                    \"extension\": \"nostrud aliqua Duis magna sit\",\n                    \"fullNumber\": \"incididunt nulla in\"\n                }\n            ],\n            \"emailAddresses\": [\n                {\n                    \"isPreferred\": false,\n                    \"purpose\": \"WORK\",\n                    \"address\": \"eiusmod quis\"\n                }\n            ],\n            \"physicalAddresses\": [\n                {\n                    \"addressUType\": \"simple\",\n                    \"simple\": {\n                        \"mailingName\": \"quis dolore amet eiusmod\",\n                        \"addressLine1\": \"enim\",\n                        \"addressLine2\": \"fugiat Duis amet Lorem\",\n                        \"addressLine3\": \"officia ullamco culpa\",\n                        \"postcode\": \"aliquip nisi Lorem ex in\",\n                        \"city\": \"quis d\",\n                        \"state\": \"Excepteur culpa sit in in\",\n                        \"country\": \"veniam sunt nostrud en\"\n                    },\n                    \"paf\": {\n                        \"dpid\": \"sed sint\",\n                        \"thoroughfareNumber1\": -30089883,\n                        \"thoroughfareNumber1Suffix\": \"enim Excepteur\",\n                        \"thoroughfareNumber2\": 81255050,\n                        \"thoroughfareNumber2Suffix\": \"eu cillum\",\n                        \"flatUnitType\": \"do Ut dolor\",\n                        \"flatUnitNumber\": \"exercitation Excepteur dolore\",\n                        \"floorLevelType\": \"exercitation magna\",\n                        \"floorLevelNumber\": \"in Ut labore laboris non\",\n                        \"lotNumber\": \"sint\",\n                        \"buildingName1\": \"commodo in enim qui dolor\",\n                        \"buildingName2\": \"sit in\",\n                        \"streetName\": \"nisi s\",\n                        \"streetType\": \"ex sunt\",\n                        \"streetSuffix\": \"mollit in\",\n                        \"postalDeliveryType\": \"qui elit aliquip eu\",\n                        \"postalDeliveryNumber\": 91724851,\n                        \"postalDeliveryNumberPrefix\": \"sint sunt id in\",\n                        \"postalDeliveryNumberSuffix\": \"dolore ex\",\n                        \"localityName\": \"magna ipsum minim\",\n                        \"postcode\": \"magna eiusmod proident laborum\",\n                        \"state\": \"consectetur consequat in fugiat cupidatat\"\n                    },\n                    \"purpose\": \"REGISTERED\"\n                }\n            ]\n        },\n        \"organisation\": {\n            \"lastUpdateTime\": \"aliqua sunt fugiat\",\n            \"agentFirstName\": \"anim ad sed irure\",\n            \"agentLastName\": \"consequat id\",\n            \"agentRole\": \"velit id\",\n            \"businessName\": \"et quis commodo nulla id\",\n            \"legalName\": \"consequat pariatur reprehenderit\",\n            \"shortName\": \"ipsum do aliqua incididunt\",\n            \"abn\": \"eiusmod\",\n            \"acn\": \"irure velit elit\",\n            \"isACNCRegistered\": true,\n            \"industryCode\": \"qui\",\n            \"organisationType\": \"SOLE_TRADER\",\n            \"registeredCountry\": \"Excepteur magna nisi labore\",\n            \"establishmentDate\": \"et tempor fugiat\",\n            \"physicalAddresses\": [\n                {\n                    \"addressUType\": \"simple\",\n                    \"simple\": {\n                        \"mailingName\": \"Lorem cillum minim magna\",\n                        \"addressLine1\": \"deserunt labore aute non\",\n                        \"addressLine2\": \"aliquip sint irure\",\n                        \"addressLine3\": \"id labore laboris eu\",\n                        \"postcode\": \"minim\",\n                        \"city\": \"in est ullamco\",\n                        \"state\": \"magna minim\",\n                        \"country\": \"fugiat deserunt o\"\n                    },\n                    \"paf\": {\n                        \"dpid\": \"nisi exercitation et\",\n                        \"thoroughfareNumber1\": 25453841,\n                        \"thoroughfareNumber1Suffix\": \"quis aute\",\n                        \"thoroughfareNumber2\": -50468235,\n                        \"thoroughfareNumber2Suffix\": \"nostrud i\",\n                        \"flatUnitType\": \"est c\",\n                        \"flatUnitNumber\": \"non\",\n                        \"floorLevelType\": \"dolor ipsum\",\n                        \"floorLevelNumber\": \"magna nulla et exercitation\",\n                        \"lotNumber\": \"tempor ad proident ipsum amet\",\n                        \"buildingName1\": \"sint ullamco aute est\",\n                        \"buildingName2\": \"deserunt minim\",\n                        \"streetName\": \"magna\",\n                        \"streetType\": \"Excepteur in adipisicing in dolore\",\n                        \"streetSuffix\": \"ut \",\n                        \"postalDeliveryType\": \"aliquip sed laborum\",\n                        \"postalDeliveryNumber\": 58535935,\n                        \"postalDeliveryNumberPrefix\": \"Ut tempor reprehenderit exercitati\",\n                        \"postalDeliveryNumberSuffix\": \"consectetur\",\n                        \"localityName\": \"tempor culpa ea\",\n                        \"postcode\": \"occaecat\",\n                        \"state\": \"aute elit\"\n                    },\n                    \"purpose\": \"REGISTERED\"\n                }\n            ]\n        }\n    },\n    \"links\": {\n        \"self\": \"aliquip et adipisicing\"\n    },\n    \"meta\": {}\n}",
+					"type": "object",
+					"metaName": "Body",
+					"metaDescription": "The response payload"
+				}
+			],
+			"outputs": {
+				"next": {
+					"context": "$.response",
+					"metaName": "Next"
+				}
+			},
+			"metaMethod": "Set HTTP Response"
+		}
+	}
+}

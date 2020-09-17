@@ -1,0 +1,71 @@
+{
+	"schemaVersion": "4",
+	"info": {
+		"name": "listPayees"
+	},
+	"parameter": {
+		"properties": {
+			"params": {
+				"type": "object",
+				"description": "The parameters from the endpoint."
+			},
+			"request": {
+				"type": "object",
+				"description": "The HTTP request."
+			},
+			"config": {
+				"type": "object",
+				"description": "The service's configuration"
+			},
+			"env": {
+				"type": "object",
+				"description": "The host OS environment"
+			}
+		},
+		"additionalProperties": false,
+		"required": [
+			"params",
+			"request",
+			"config",
+			"env"
+		]
+	},
+	"start": "http.setresponse.1",
+	"nodes": {
+		"http.setresponse.1": {
+			"type": "nodehandler://axway-flow/http",
+			"method": "setresponse",
+			"name": "Set HTTP Response",
+			"parameters": [
+				{
+					"name": "status",
+					"value": "200",
+					"type": "number",
+					"metaName": "Status",
+					"metaDescription": "The HTTP status code"
+				},
+				{
+					"name": "headers",
+					"value": "{\n    \"x-v\": \"eiusmod nostrud fugiat\",\n    \"x-fapi-interaction-id\": \"laborum\"\n}",
+					"type": "object",
+					"metaName": "Headers",
+					"metaDescription": "Key-value pairs of headers"
+				},
+				{
+					"name": "body",
+					"value": "{\n    \"data\": {\n        \"payees\": [\n            {\n                \"payeeId\": \"cillum elit culpa consequat\",\n                \"nickname\": \"amet occaecat laboris Ut Lorem\",\n                \"description\": \"enim consequat occaecat esse sit\",\n                \"type\": \"DOMESTIC\",\n                \"creationDate\": \"sed\"\n            }\n        ]\n    },\n    \"links\": {\n        \"self\": \"ut anim minim\",\n        \"first\": \"in ut veniam nisi sint\",\n        \"prev\": \"ullamco amet\",\n        \"next\": \"magna mollit \",\n        \"last\": \"amet\"\n    },\n    \"meta\": {\n        \"totalRecords\": 74627755,\n        \"totalPages\": -74512461\n    }\n}",
+					"type": "object",
+					"metaName": "Body",
+					"metaDescription": "The response payload"
+				}
+			],
+			"outputs": {
+				"next": {
+					"context": "$.response",
+					"metaName": "Next"
+				}
+			},
+			"metaMethod": "Set HTTP Response"
+		}
+	}
+}

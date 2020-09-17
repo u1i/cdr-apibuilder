@@ -1,0 +1,71 @@
+{
+	"schemaVersion": "4",
+	"info": {
+		"name": "getTransactionDetail"
+	},
+	"parameter": {
+		"properties": {
+			"params": {
+				"type": "object",
+				"description": "The parameters from the endpoint."
+			},
+			"request": {
+				"type": "object",
+				"description": "The HTTP request."
+			},
+			"config": {
+				"type": "object",
+				"description": "The service's configuration"
+			},
+			"env": {
+				"type": "object",
+				"description": "The host OS environment"
+			}
+		},
+		"additionalProperties": false,
+		"required": [
+			"params",
+			"request",
+			"config",
+			"env"
+		]
+	},
+	"start": "http.setresponse.1",
+	"nodes": {
+		"http.setresponse.1": {
+			"type": "nodehandler://axway-flow/http",
+			"method": "setresponse",
+			"name": "Set HTTP Response",
+			"parameters": [
+				{
+					"name": "status",
+					"value": "200",
+					"type": "number",
+					"metaName": "Status",
+					"metaDescription": "The HTTP status code"
+				},
+				{
+					"name": "headers",
+					"value": "{\n    \"x-v\": \"et laboris\",\n    \"x-fapi-interaction-id\": \"id enim\"\n}",
+					"type": "object",
+					"metaName": "Headers",
+					"metaDescription": "Key-value pairs of headers"
+				},
+				{
+					"name": "body",
+					"value": "{\n    \"data\": {\n        \"accountId\": \"dolore reprehenderit do\",\n        \"transactionId\": \"velit non sun\",\n        \"isDetailAvailable\": true,\n        \"type\": \"FEE\",\n        \"status\": \"PENDING\",\n        \"description\": \"culpa\",\n        \"postingDateTime\": \"anim\",\n        \"valueDateTime\": \"do minim\",\n        \"executionDateTime\": \"Ut esse\",\n        \"amount\": \"sunt magna proident\",\n        \"currency\": \"est m\",\n        \"reference\": \"irure est\",\n        \"merchantName\": \"in qui\",\n        \"merchantCategoryCode\": \"irure anim cupidatat est mollit\",\n        \"billerCode\": \"do\",\n        \"billerName\": \"enim tempor in eiusmod dolore\",\n        \"crn\": \"dolore la\",\n        \"apcaNumber\": \"sint est ut\",\n        \"extendedData\": {\n            \"payer\": \"enim dolor\",\n            \"payee\": \"amet exercitation\",\n            \"extensionUType\": \"x2p101Payload\",\n            \"x2p101Payload\": {\n                \"extendedDescription\": \"esse incididunt ipsum dolor\",\n                \"endToEndId\": \"dolore \",\n                \"purposeCode\": \"ipsum\"\n            },\n            \"service\": \"X2P1.01\"\n        }\n    },\n    \"links\": {\n        \"self\": \"non in proident sint\"\n    },\n    \"meta\": {}\n}",
+					"type": "object",
+					"metaName": "Body",
+					"metaDescription": "The response payload"
+				}
+			],
+			"outputs": {
+				"next": {
+					"context": "$.response",
+					"metaName": "Next"
+				}
+			},
+			"metaMethod": "Set HTTP Response"
+		}
+	}
+}

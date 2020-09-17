@@ -1,0 +1,71 @@
+{
+	"schemaVersion": "4",
+	"info": {
+		"name": "listScheduledPaymentsSpecificAccounts"
+	},
+	"parameter": {
+		"properties": {
+			"params": {
+				"type": "object",
+				"description": "The parameters from the endpoint."
+			},
+			"request": {
+				"type": "object",
+				"description": "The HTTP request."
+			},
+			"config": {
+				"type": "object",
+				"description": "The service's configuration"
+			},
+			"env": {
+				"type": "object",
+				"description": "The host OS environment"
+			}
+		},
+		"additionalProperties": false,
+		"required": [
+			"params",
+			"request",
+			"config",
+			"env"
+		]
+	},
+	"start": "http.setresponse.1",
+	"nodes": {
+		"http.setresponse.1": {
+			"type": "nodehandler://axway-flow/http",
+			"method": "setresponse",
+			"name": "Set HTTP Response",
+			"parameters": [
+				{
+					"name": "status",
+					"value": "200",
+					"type": "number",
+					"metaName": "Status",
+					"metaDescription": "The HTTP status code"
+				},
+				{
+					"name": "headers",
+					"value": "{\n    \"x-v\": \"ullamco Ut consectetur\",\n    \"x-fapi-interaction-id\": \"comm\"\n}",
+					"type": "object",
+					"metaName": "Headers",
+					"metaDescription": "Key-value pairs of headers"
+				},
+				{
+					"name": "body",
+					"value": "{\n    \"data\": {\n        \"scheduledPayments\": [\n            {\n                \"scheduledPaymentId\": \"nostrud\",\n                \"nickname\": \"minim ea non amet\",\n                \"payerReference\": \"occaecat eiusmod et nis\",\n                \"payeeReference\": \"anim laborum tempor nostrud\",\n                \"status\": \"ACTIVE\",\n                \"from\": {\n                    \"accountId\": \"ad id elit veniam\"\n                },\n                \"paymentSet\": [\n                    {\n                        \"to\": {\n                            \"toUType\": \"accountId\",\n                            \"accountId\": \"ullamco veniam tempor exercitation aliqu\",\n                            \"payeeId\": \"adipisicing voluptate nostrud\",\n                            \"domestic\": {\n                                \"payeeAccountUType\": \"account\",\n                                \"account\": {\n                                    \"accountName\": \"eu non dolor officia labore\",\n                                    \"bsb\": \"et aliquip ex\",\n                                    \"accountNumber\": \"voluptate irure dolore tempor\"\n                                },\n                                \"card\": {\n                                    \"cardNumber\": \"id cupidatat veniam\"\n                                },\n                                \"payId\": {\n                                    \"name\": \"quis incididunt\",\n                                    \"identifier\": \"cupidatat\",\n                                    \"type\": \"EMAIL\"\n                                }\n                            },\n                            \"biller\": {\n                                \"billerCode\": \"Lorem ut magna tempor\",\n                                \"crn\": \"aliqui\",\n                                \"billerName\": \"\"\n                            },\n                            \"international\": {\n                                \"beneficiaryDetails\": {\n                                    \"name\": \"deserunt aliqua veniam\",\n                                    \"country\": \"commodo dolore cupidatat\",\n                                    \"message\": \"elit amet sed dolor\"\n                                },\n                                \"bankDetails\": {\n                                    \"country\": \"deserunt laboris quis occaecat\",\n                                    \"accountNumber\": \"ipsum nostrud nisi culpa iru\",\n                                    \"bankAddress\": {\n                                        \"name\": \"cillum culpa sunt\",\n                                        \"address\": \"voluptate laborum\"\n                                    },\n                                    \"beneficiaryBankBIC\": \"veniam commodo in\",\n                                    \"fedWireNumber\": \"do\",\n                                    \"sortCode\": \"deserunt in\",\n                                    \"chipNumber\": \"mollit reprehender\",\n                                    \"routingNumber\": \"in Excepteur ipsum velit \",\n                                    \"legalEntityIdentifier\": \"fugiat\"\n                                }\n                            }\n                        },\n                        \"isAmountCalculated\": false,\n                        \"amount\": \"tempor nostrud incididunt enim adipisicing\",\n                        \"currency\": \"sint Excepteur ad officia\"\n                    }\n                ],\n                \"recurrence\": {\n                    \"nextPaymentDate\": \"ullamco laborum\",\n                    \"recurrenceUType\": \"onceOff\",\n                    \"onceOff\": {\n                        \"paymentDate\": \"in officia ad et\"\n                    },\n                    \"intervalSchedule\": {\n                        \"finalPaymentDate\": \"incididunt\",\n                        \"paymentsRemaining\": -52639993,\n                        \"nonBusinessDayTreatment\": \"ON\",\n                        \"intervals\": [\n                            {\n                                \"interval\": \"quis non\",\n                                \"dayInInterval\": \"ex\"\n                            }\n                        ]\n                    },\n                    \"lastWeekDay\": {\n                        \"finalPaymentDate\": \"pariatur culpa consectetur magna eu\",\n                        \"paymentsRemaining\": -8787568,\n                        \"interval\": \"commodo amet sint pariatur dolore\",\n                        \"lastWeekDay\": \"MON\",\n                        \"nonBusinessDayTreatment\": \"ON\"\n                    },\n                    \"eventBased\": {\n                        \"description\": \"officia f\"\n                    }\n                }\n            }\n        ]\n    },\n    \"links\": {\n        \"self\": \"sunt voluptate ex est Excepteur\",\n        \"first\": \"officia culpa\",\n        \"prev\": \"tempor cill\",\n        \"next\": \"Ut eu ut sit\",\n        \"last\": \"sint eu\"\n    },\n    \"meta\": {\n        \"totalRecords\": -41553964,\n        \"totalPages\": -67388502\n    }\n}",
+					"type": "object",
+					"metaName": "Body",
+					"metaDescription": "The response payload"
+				}
+			],
+			"outputs": {
+				"next": {
+					"context": "$.response",
+					"metaName": "Next"
+				}
+			},
+			"metaMethod": "Set HTTP Response"
+		}
+	}
+}

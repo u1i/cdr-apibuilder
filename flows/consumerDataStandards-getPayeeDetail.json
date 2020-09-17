@@ -1,0 +1,71 @@
+{
+	"schemaVersion": "4",
+	"info": {
+		"name": "getPayeeDetail"
+	},
+	"parameter": {
+		"properties": {
+			"params": {
+				"type": "object",
+				"description": "The parameters from the endpoint."
+			},
+			"request": {
+				"type": "object",
+				"description": "The HTTP request."
+			},
+			"config": {
+				"type": "object",
+				"description": "The service's configuration"
+			},
+			"env": {
+				"type": "object",
+				"description": "The host OS environment"
+			}
+		},
+		"additionalProperties": false,
+		"required": [
+			"params",
+			"request",
+			"config",
+			"env"
+		]
+	},
+	"start": "http.setresponse.1",
+	"nodes": {
+		"http.setresponse.1": {
+			"type": "nodehandler://axway-flow/http",
+			"method": "setresponse",
+			"name": "Set HTTP Response",
+			"parameters": [
+				{
+					"name": "status",
+					"value": "200",
+					"type": "number",
+					"metaName": "Status",
+					"metaDescription": "The HTTP status code"
+				},
+				{
+					"name": "headers",
+					"value": "{\n    \"x-v\": \"in\",\n    \"x-fapi-interaction-id\": \"ei\"\n}",
+					"type": "object",
+					"metaName": "Headers",
+					"metaDescription": "Key-value pairs of headers"
+				},
+				{
+					"name": "body",
+					"value": "{\n    \"data\": {\n        \"payeeId\": \"ipsum in anim eu non\",\n        \"nickname\": \"fugiat eiusmod veni\",\n        \"description\": \"laboris minim ex aliqua\",\n        \"type\": \"DOMESTIC\",\n        \"creationDate\": \"consequat irure\",\n        \"payeeUType\": \"domestic\",\n        \"domestic\": {\n            \"payeeAccountUType\": \"account\",\n            \"account\": {\n                \"accountName\": \"fugiat Duis exercitation\",\n                \"bsb\": \"reprehenderit nulla anim est fugiat\",\n                \"accountNumber\": \"aliqua nulla mollit in\"\n            },\n            \"card\": {\n                \"cardNumber\": \"commodo ad\"\n            },\n            \"payId\": {\n                \"name\": \"irure sed aliqua mollit consectetur\",\n                \"identifier\": \"quis\",\n                \"type\": \"EMAIL\"\n            }\n        },\n        \"biller\": {\n            \"billerCode\": \"id sint ex ad consectetur\",\n            \"crn\": \"pariatur enim eu\",\n            \"billerName\": \"consequat esse nulla proident officia\"\n        },\n        \"international\": {\n            \"beneficiaryDetails\": {\n                \"name\": \"ea sint\",\n                \"country\": \"nisi eu fugiat ex et\",\n                \"message\": \"officia\"\n            },\n            \"bankDetails\": {\n                \"country\": \"Excepteur officia Lorem\",\n                \"accountNumber\": \"sint\",\n                \"bankAddress\": {\n                    \"name\": \"fugiat pariatur\",\n                    \"address\": \"officia\"\n                },\n                \"beneficiaryBankBIC\": \"enim consequat\",\n                \"fedWireNumber\": \"labore Lorem exercitation\",\n                \"sortCode\": \"id\",\n                \"chipNumber\": \"exercitation qui aliqua sunt\",\n                \"routingNumber\": \"ea Lorem mollit tempor amet\",\n                \"legalEntityIdentifier\": \"sunt voluptate ut\"\n            }\n        }\n    },\n    \"links\": {\n        \"self\": \"eiusmod Excepteur id amet cupidatat\"\n    },\n    \"meta\": {}\n}",
+					"type": "object",
+					"metaName": "Body",
+					"metaDescription": "The response payload"
+				}
+			],
+			"outputs": {
+				"next": {
+					"context": "$.response",
+					"metaName": "Next"
+				}
+			},
+			"metaMethod": "Set HTTP Response"
+		}
+	}
+}

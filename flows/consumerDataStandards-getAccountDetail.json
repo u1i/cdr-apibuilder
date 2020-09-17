@@ -1,0 +1,71 @@
+{
+	"schemaVersion": "4",
+	"info": {
+		"name": "getAccountDetail"
+	},
+	"parameter": {
+		"properties": {
+			"params": {
+				"type": "object",
+				"description": "The parameters from the endpoint."
+			},
+			"request": {
+				"type": "object",
+				"description": "The HTTP request."
+			},
+			"config": {
+				"type": "object",
+				"description": "The service's configuration"
+			},
+			"env": {
+				"type": "object",
+				"description": "The host OS environment"
+			}
+		},
+		"additionalProperties": false,
+		"required": [
+			"params",
+			"request",
+			"config",
+			"env"
+		]
+	},
+	"start": "http.setresponse.1",
+	"nodes": {
+		"http.setresponse.1": {
+			"type": "nodehandler://axway-flow/http",
+			"method": "setresponse",
+			"name": "Set HTTP Response",
+			"parameters": [
+				{
+					"name": "status",
+					"value": "200",
+					"type": "number",
+					"metaName": "Status",
+					"metaDescription": "The HTTP status code"
+				},
+				{
+					"name": "headers",
+					"value": "{\n    \"x-v\": \"non\",\n    \"x-fapi-interaction-id\": \"exercitation\"\n}",
+					"type": "object",
+					"metaName": "Headers",
+					"metaDescription": "Key-value pairs of headers"
+				},
+				{
+					"name": "body",
+					"value": "{\n    \"data\": {\n        \"accountId\": \"amet ut\",\n        \"creationDate\": \"Lorem\",\n        \"displayName\": \"quis minim\",\n        \"nickname\": \"qui ipsum officia cupidatat\",\n        \"openStatus\": \"OPEN\",\n        \"isOwned\": false,\n        \"maskedNumber\": \"mollit proident\",\n        \"productCategory\": \"TRANS_AND_SAVINGS_ACCOUNTS\",\n        \"productName\": \"cillum adipisicing\",\n        \"bsb\": \"sed dolore exercitation quis nulla\",\n        \"accountNumber\": \"et fugiat est enim do\",\n        \"bundleName\": \"in aute dolore magna commodo\",\n        \"specificAccountUType\": \"termDeposit\",\n        \"termDeposit\": [\n            {\n                \"lodgementDate\": \"ut\",\n                \"maturityDate\": \"magna\",\n                \"maturityAmount\": \"irure\",\n                \"maturityCurrency\": \"consectetur exercitation voluptate enim\",\n                \"maturityInstructions\": \"ROLLED_OVER\"\n            }\n        ],\n        \"creditCard\": {\n            \"minPaymentAmount\": \"e\",\n            \"paymentDueAmount\": \"magna ame\",\n            \"paymentCurrency\": \"in\",\n            \"paymentDueDate\": \"\"\n        },\n        \"loan\": {\n            \"originalStartDate\": \"dolor\",\n            \"originalLoanAmount\": \"labore\",\n            \"originalLoanCurrency\": \"laboris ipsum ea\",\n            \"loanEndDate\": \"fugiat est Duis magna\",\n            \"nextInstalmentDate\": \"incididunt\",\n            \"minInstalmentAmount\": \"minim est nostrud cupidatat commodo\",\n            \"minInstalmentCurrency\": \"cillum anim ad fugiat\",\n            \"maxRedraw\": \"eiusmod id minim\",\n            \"maxRedrawCurrency\": \"nostrud irure in\",\n            \"minRedraw\": \"eiusmod reprehenderit occaecat et\",\n            \"minRedrawCurrency\": \"ut\",\n            \"offsetAccountEnabled\": true,\n            \"offsetAccountIds\": [\n                \"magna incididunt nostrud quis anim\"\n            ],\n            \"repaymentType\": \"PRINCIPAL_AND_INTEREST\",\n            \"repaymentFrequency\": \"officia culpa Duis tempor et\"\n        },\n        \"depositRate\": \"ut consequat laborum\",\n        \"lendingRate\": \"incididunt voluptate officia ad\",\n        \"depositRates\": [\n            {\n                \"depositRateType\": \"FIXED\",\n                \"rate\": \"non\",\n                \"calculationFrequency\": \"qui dolor laboris\",\n                \"applicationFrequency\": \"nostrud\",\n                \"tiers\": [\n                    {\n                        \"name\": \"cillum magna\",\n                        \"unitOfMeasure\": \"DOLLAR\",\n                        \"minimumValue\": -57860255,\n                        \"maximumValue\": -8232488,\n                        \"rateApplicationMethod\": \"WHOLE_BALANCE\",\n                        \"applicabilityConditions\": {\n                            \"additionalInfo\": \"qui ex dolore\",\n                            \"additionalInfoUri\": \"fugiat sunt culpa in ipsu\"\n                        },\n                        \"additionalInfo\": \"Lorem sunt\",\n                        \"additionalInfoUri\": \"nulla culpa\"\n                    }\n                ],\n                \"additionalValue\": \"elit dolore et\",\n                \"additionalInfo\": \"aliqua et ex\",\n                \"additionalInfoUri\": \"ea adipisicing elit\"\n            }\n        ],\n        \"lendingRates\": [\n            {\n                \"lendingRateType\": \"FIXED\",\n                \"rate\": \"cillum sit occaecat esse\",\n                \"comparisonRate\": \"culpa\",\n                \"calculationFrequency\": \"laborum minim ullamco\",\n                \"applicationFrequency\": \"eu commodo veniam\",\n                \"interestPaymentDue\": \"IN_ARREARS\",\n                \"repaymentType\": \"INTEREST_ONLY\",\n                \"loanPurpose\": \"OWNER_OCCUPIED\",\n                \"tiers\": [\n                    {\n                        \"name\": \"qui do\",\n                        \"unitOfMeasure\": \"DOLLAR\",\n                        \"minimumValue\": 76356745,\n                        \"maximumValue\": -71013344,\n                        \"rateApplicationMethod\": \"WHOLE_BALANCE\",\n                        \"applicabilityConditions\": {\n                            \"additionalInfo\": \"ex sed mollit quis\",\n                            \"additionalInfoUri\": \"ipsum\"\n                        },\n                        \"additionalInfo\": \"dolor irure id\",\n                        \"additionalInfoUri\": \"Lorem\"\n                    }\n                ],\n                \"additionalValue\": \"irure dolor\",\n                \"additionalInfo\": \"consequat dolor\",\n                \"additionalInfoUri\": \"ipsum\"\n            }\n        ],\n        \"features\": [\n            {\n                \"featureType\": \"CARD_ACCESS\",\n                \"additionalValue\": \"sint Lorem\",\n                \"additionalInfo\": \"eu reprehenderit cupidatat\",\n                \"additionalInfoUri\": \"quis sit sed\",\n                \"isActivated\": true\n            }\n        ],\n        \"fees\": [\n            {\n                \"name\": \"fugiat deserunt nostrud ipsum non\",\n                \"feeType\": \"PERIODIC\",\n                \"amount\": \"non nulla nisi\",\n                \"balanceRate\": \"ullamco ipsum\",\n                \"transactionRate\": \"sed qui laborum culpa\",\n                \"accruedRate\": \"enim\",\n                \"accrualFrequency\": \"Lorem reprehenderit ea est\",\n                \"currency\": \"nostrud ut eu dolor\",\n                \"additionalValue\": \"sunt quis Lorem officia\",\n                \"additionalInfo\": \"cillum\",\n                \"additionalInfoUri\": \"in cillum id\",\n                \"discounts\": [\n                    {\n                        \"description\": \"eiusmod id commodo dolor ad\",\n                        \"discountType\": \"BALANCE\",\n                        \"amount\": \"cillum eu\",\n                        \"balanceRate\": \"occaecat ipsum voluptate consectetur laboris\",\n                        \"transactionRate\": \"culpa qui voluptate\",\n                        \"accruedRate\": \"est id exercitation tempor\",\n                        \"feeRate\": \"dolor voluptate Duis\",\n                        \"additionalValue\": \"Ut\",\n                        \"additionalInfo\": \"Excepteur non\",\n                        \"additionalInfoUri\": \"qui Duis\",\n                        \"eligibility\": [\n                            {\n                                \"discountEligibilityType\": \"BUSINESS\",\n                                \"additionalValue\": \"aliqua cillum pariatur\",\n                                \"additionalInfo\": \"ullamco\",\n                                \"additionalInfoUri\": \"nulla dolor ut pariatur\"\n                            }\n                        ]\n                    }\n                ]\n            }\n        ],\n        \"addresses\": [\n            {\n                \"addressUType\": \"simple\",\n                \"simple\": {\n                    \"mailingName\": \"exercitation eu velit\",\n                    \"addressLine1\": \"in Duis minim in commodo\",\n                    \"addressLine2\": \"laboris ea minim occaecat\",\n                    \"addressLine3\": \"pariatur \",\n                    \"postcode\": \"quis cillum minim\",\n                    \"city\": \"minim sit\",\n                    \"state\": \"nisi proident\",\n                    \"country\": \"sint qui ut nostrud\"\n                },\n                \"paf\": {\n                    \"dpid\": \"ullamco incididunt dolor amet aute\",\n                    \"thoroughfareNumber1\": 33423274,\n                    \"thoroughfareNumber1Suffix\": \"pariatur\",\n                    \"thoroughfareNumber2\": 95473987,\n                    \"thoroughfareNumber2Suffix\": \"dolor esse\",\n                    \"flatUnitType\": \"labore sit mollit consequat eiusmod\",\n                    \"flatUnitNumber\": \"quis commodo ea laboris\",\n                    \"floorLevelType\": \"ad Excepteur\",\n                    \"floorLevelNumber\": \"in cillum magna d\",\n                    \"lotNumber\": \"voluptate anim ut consequat\",\n                    \"buildingName1\": \"labore eiusmod i\",\n                    \"buildingName2\": \"cupidatat adipisicin\",\n                    \"streetName\": \"occaecat commodo nostrud \",\n                    \"streetType\": \"cillum nostrud\",\n                    \"streetSuffix\": \"reprehenderit minim voluptate qui\",\n                    \"postalDeliveryType\": \"in Lorem consequat Excepteur cupidatat\",\n                    \"postalDeliveryNumber\": -62294583,\n                    \"postalDeliveryNumberPrefix\": \"eu nisi\",\n                    \"postalDeliveryNumberSuffix\": \"in ex ut Duis sit\",\n                    \"localityName\": \"sit velit consectetur\",\n                    \"postcode\": \"voluptate et non\",\n                    \"state\": \"consectetur\"\n                }\n            }\n        ]\n    },\n    \"links\": {\n        \"self\": \"consequat occaecat\"\n    },\n    \"meta\": {}\n}",
+					"type": "object",
+					"metaName": "Body",
+					"metaDescription": "The response payload"
+				}
+			],
+			"outputs": {
+				"next": {
+					"context": "$.response",
+					"metaName": "Next"
+				}
+			},
+			"metaMethod": "Set HTTP Response"
+		}
+	}
+}

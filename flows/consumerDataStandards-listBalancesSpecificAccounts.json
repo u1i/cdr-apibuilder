@@ -1,0 +1,71 @@
+{
+	"schemaVersion": "4",
+	"info": {
+		"name": "listBalancesSpecificAccounts"
+	},
+	"parameter": {
+		"properties": {
+			"params": {
+				"type": "object",
+				"description": "The parameters from the endpoint."
+			},
+			"request": {
+				"type": "object",
+				"description": "The HTTP request."
+			},
+			"config": {
+				"type": "object",
+				"description": "The service's configuration"
+			},
+			"env": {
+				"type": "object",
+				"description": "The host OS environment"
+			}
+		},
+		"additionalProperties": false,
+		"required": [
+			"params",
+			"request",
+			"config",
+			"env"
+		]
+	},
+	"start": "http.setresponse.1",
+	"nodes": {
+		"http.setresponse.1": {
+			"type": "nodehandler://axway-flow/http",
+			"method": "setresponse",
+			"name": "Set HTTP Response",
+			"parameters": [
+				{
+					"name": "status",
+					"value": "200",
+					"type": "number",
+					"metaName": "Status",
+					"metaDescription": "The HTTP status code"
+				},
+				{
+					"name": "headers",
+					"value": "{\n    \"x-v\": \"anim velit laboris eiusmod laborum\",\n    \"x-fapi-interaction-id\": \"adipisicing\"\n}",
+					"type": "object",
+					"metaName": "Headers",
+					"metaDescription": "Key-value pairs of headers"
+				},
+				{
+					"name": "body",
+					"value": "{\n    \"data\": {\n        \"balances\": [\n            {\n                \"accountId\": \"laborum Ut occaecat do\",\n                \"currentBalance\": \"ad\",\n                \"availableBalance\": \"et Duis\",\n                \"creditLimit\": \"ut dolor\",\n                \"amortisedLimit\": \"et commodo elit velit\",\n                \"currency\": \"fugiat incididunt\",\n                \"purses\": [\n                    {\n                        \"amount\": \"quis\",\n                        \"currency\": \"esse aliqua\"\n                    }\n                ]\n            }\n        ]\n    },\n    \"links\": {\n        \"self\": \"cupidatat qui\",\n        \"first\": \"anim occaecat\",\n        \"prev\": \"ut in\",\n        \"next\": \"sint occaecat\",\n        \"last\": \"elit reprehenderit culp\"\n    },\n    \"meta\": {\n        \"totalRecords\": 19989848,\n        \"totalPages\": 53267723\n    }\n}",
+					"type": "object",
+					"metaName": "Body",
+					"metaDescription": "The response payload"
+				}
+			],
+			"outputs": {
+				"next": {
+					"context": "$.response",
+					"metaName": "Next"
+				}
+			},
+			"metaMethod": "Set HTTP Response"
+		}
+	}
+}

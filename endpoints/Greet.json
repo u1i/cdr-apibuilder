@@ -1,0 +1,14 @@
+{
+  "x-enabled": {
+    "enabled": true
+  },
+  "swagger": "2.0",
+  "info": {
+    "description": "Greeting functions",
+    "version": "1.0.0",
+    "title": "Greeting API"
+  },
+  "paths": {
+    "/greet": {}
+  }
+}

@@ -1,0 +1,71 @@
+{
+	"schemaVersion": "4",
+	"info": {
+		"name": "listProducts"
+	},
+	"parameter": {
+		"properties": {
+			"params": {
+				"type": "object",
+				"description": "The parameters from the endpoint."
+			},
+			"request": {
+				"type": "object",
+				"description": "The HTTP request."
+			},
+			"config": {
+				"type": "object",
+				"description": "The service's configuration"
+			},
+			"env": {
+				"type": "object",
+				"description": "The host OS environment"
+			}
+		},
+		"additionalProperties": false,
+		"required": [
+			"params",
+			"request",
+			"config",
+			"env"
+		]
+	},
+	"start": "http.setresponse.1",
+	"nodes": {
+		"http.setresponse.1": {
+			"type": "nodehandler://axway-flow/http",
+			"method": "setresponse",
+			"name": "Set HTTP Response",
+			"parameters": [
+				{
+					"name": "status",
+					"value": "200",
+					"type": "number",
+					"metaName": "Status",
+					"metaDescription": "The HTTP status code"
+				},
+				{
+					"name": "body",
+					"type": "object",
+					"value": "{\n    \"data\": {\n        \"products\": [\n            {\n                \"productId\": \"7501038\",\n                \"effectiveFrom\": \"2020-05-01T00:00:00Z\",\n                \"lastUpdated\": \"2020-06-17T00:00:00Z\",\n                \"productCategory\": \"TRANS_AND_SAVINGS_ACCOUNTS\",\n                \"name\": \"OAB Everyday Options Account\",\n                \"description\": \"An easy, everyday bank account packed with extras to help you spend, save and budget better.\",\n                \"brand\": \"OAB\",\n                \"applicationUri\": \"https://www.oab.com.au/banking/bank-accounts/everyday-accounts/options.html#application\",\n                \"isTailored\": false,\n                \"additionalInformation\": {\n                    \"overviewUri\": \"https://www.oab.com.au/banking/bank-accounts/everyday-accounts/options.html\",\n                    \"termsUri\": \"https://www.oab.com.au/content/dam/suncorp/bank/documents/product-information/personal-deposit-account-pid.pdf\",\n                    \"eligibilityUri\": \"https://www.oab.com.au/content/dam/suncorp/bank/documents/product-information/personal-deposit-account-pid.pdf\",\n                    \"feesAndPricingUri\": \"https://www.oab.com.au/content/dam/suncorp/bank/documents/product-information/personal-deposit-account-pid.pdf\"\n                }\n            },\n            {\n                \"productId\": \"9783839\",\n                \"effectiveFrom\": \"2020-05-01T00:00:00Z\",\n                \"lastUpdated\": \"2020-06-17T00:00:00Z\",\n                \"productCategory\": \"TRANS_AND_SAVINGS_ACCOUNTS\",\n                \"name\": \"OAB Everyday Essentials Account\",\n                \"description\": \"A basic day-to-day transaction account for holders of concession and health care cards or recipients of government income support.\",\n                \"brand\": \"OAB\",\n                \"isTailored\": false,\n                \"additionalInformation\": {\n                    \"overviewUri\": \"https://www.oab.com.au/banking/bank-accounts/everyday-accounts/essentials.html\",\n                    \"termsUri\": \"https://www.oab.com.au/content/dam/suncorp/bank/documents/product-information/personal-deposit-account-pid.pdf\",\n                    \"eligibilityUri\": \"https://www.oab.com.au/content/dam/suncorp/bank/documents/product-information/personal-deposit-account-pid.pdf\",\n                    \"feesAndPricingUri\": \"https://www.oab.com.au/content/dam/suncorp/bank/documents/product-information/personal-deposit-account-pid.pdf\"\n                }\n            }\n        ]\n    },\n    \"links\": {\n        \"self\": \"https://api.axway.training/cds-au/v1/banking/products\",\n        \"first\": \"https://aapi.axway.training/cds-au/v1/banking/products?page=1&page-size=25\",\n        \"last\": \"https://api.axway.training/cds-au/v1/banking/products?page=1&page-size=25\"\n    },\n    \"meta\": {\n        \"totalRecords\": 2,\n        \"totalPages\": 1\n    }\n}",
+					"metaName": "Body",
+					"metaDescription": "The response payload"
+				},
+				{
+					"name": "headers",
+					"type": "object",
+					"value": "{\n    \"x-v\": \"2\"\n}",
+					"metaName": "Headers",
+					"metaDescription": "Key-value pairs of headers"
+				}
+			],
+			"outputs": {
+				"next": {
+					"context": "$.response",
+					"metaName": "Next"
+				}
+			},
+			"metaMethod": "Set HTTP Response"
+		}
+	}
+}

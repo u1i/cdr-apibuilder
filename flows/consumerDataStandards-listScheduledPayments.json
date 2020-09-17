@@ -1,0 +1,71 @@
+{
+	"schemaVersion": "4",
+	"info": {
+		"name": "listScheduledPayments"
+	},
+	"parameter": {
+		"properties": {
+			"params": {
+				"type": "object",
+				"description": "The parameters from the endpoint."
+			},
+			"request": {
+				"type": "object",
+				"description": "The HTTP request."
+			},
+			"config": {
+				"type": "object",
+				"description": "The service's configuration"
+			},
+			"env": {
+				"type": "object",
+				"description": "The host OS environment"
+			}
+		},
+		"additionalProperties": false,
+		"required": [
+			"params",
+			"request",
+			"config",
+			"env"
+		]
+	},
+	"start": "http.setresponse.1",
+	"nodes": {
+		"http.setresponse.1": {
+			"type": "nodehandler://axway-flow/http",
+			"method": "setresponse",
+			"name": "Set HTTP Response",
+			"parameters": [
+				{
+					"name": "status",
+					"value": "200",
+					"type": "number",
+					"metaName": "Status",
+					"metaDescription": "The HTTP status code"
+				},
+				{
+					"name": "headers",
+					"value": "{\n    \"x-v\": \"est eiusmod culpa in\",\n    \"x-fapi-interaction-id\": \"ex incididunt est in consequat\"\n}",
+					"type": "object",
+					"metaName": "Headers",
+					"metaDescription": "Key-value pairs of headers"
+				},
+				{
+					"name": "body",
+					"value": "{\n    \"data\": {\n        \"scheduledPayments\": [\n            {\n                \"scheduledPaymentId\": \"nostrud laboris dolore\",\n                \"nickname\": \"cillum dolore\",\n                \"payerReference\": \"ex\",\n                \"payeeReference\": \"Lorem Excepteur Duis commodo\",\n                \"status\": \"ACTIVE\",\n                \"from\": {\n                    \"accountId\": \"cillum ex commodo aliqua\"\n                },\n                \"paymentSet\": [\n                    {\n                        \"to\": {\n                            \"toUType\": \"accountId\",\n                            \"accountId\": \"cillum\",\n                            \"payeeId\": \"elit do velit\",\n                            \"domestic\": {\n                                \"payeeAccountUType\": \"account\",\n                                \"account\": {\n                                    \"accountName\": \"veniam labore voluptate\",\n                                    \"bsb\": \"aliquip esse exercitation\",\n                                    \"accountNumber\": \"id Duis reprehenderit minim Excepteur\"\n                                },\n                                \"card\": {\n                                    \"cardNumber\": \"sunt nulla ut dolor \"\n                                },\n                                \"payId\": {\n                                    \"name\": \"Duis\",\n                                    \"identifier\": \"velit\",\n                                    \"type\": \"EMAIL\"\n                                }\n                            },\n                            \"biller\": {\n                                \"billerCode\": \"consectetur incididunt commodo\",\n                                \"crn\": \"labore anim\",\n                                \"billerName\": \"nisi Lorem aliqua sunt\"\n                            },\n                            \"international\": {\n                                \"beneficiaryDetails\": {\n                                    \"name\": \"nulla Lorem sit tempor\",\n                                    \"country\": \"minim ad eu id in\",\n                                    \"message\": \"eiusmod adipisicing labore dolor\"\n                                },\n                                \"bankDetails\": {\n                                    \"country\": \"laborum eu dolore enim mollit\",\n                                    \"accountNumber\": \"Duis commodo\",\n                                    \"bankAddress\": {\n                                        \"name\": \"amet\",\n                                        \"address\": \"Excepteur occaecat\"\n                                    },\n                                    \"beneficiaryBankBIC\": \"dolore dolor anim mollit enim\",\n                                    \"fedWireNumber\": \"aliqua anim\",\n                                    \"sortCode\": \"Duis adipisicing est\",\n                                    \"chipNumber\": \"sed cupidatat Dui\",\n                                    \"routingNumber\": \"ut sunt nostrud in\",\n                                    \"legalEntityIdentifier\": \"irure ipsum aute tempor\"\n                                }\n                            }\n                        },\n                        \"isAmountCalculated\": false,\n                        \"amount\": \"eu\",\n                        \"currency\": \"quis tempor\"\n                    }\n                ],\n                \"recurrence\": {\n                    \"nextPaymentDate\": \"ut\",\n                    \"recurrenceUType\": \"onceOff\",\n                    \"onceOff\": {\n                        \"paymentDate\": \"dolor nulla\"\n                    },\n                    \"intervalSchedule\": {\n                        \"finalPaymentDate\": \"minim tempor in\",\n                        \"paymentsRemaining\": 69380513,\n                        \"nonBusinessDayTreatment\": \"ON\",\n                        \"intervals\": [\n                            {\n                                \"interval\": \"ea in exercitation sint\",\n                                \"dayInInterval\": \"in cillum nulla sunt enim\"\n                            }\n                        ]\n                    },\n                    \"lastWeekDay\": {\n                        \"finalPaymentDate\": \"consectetur cupidatat\",\n                        \"paymentsRemaining\": 33220478,\n                        \"interval\": \"id nulla est\",\n                        \"lastWeekDay\": \"MON\",\n                        \"nonBusinessDayTreatment\": \"ON\"\n                    },\n                    \"eventBased\": {\n                        \"description\": \"vel\"\n                    }\n                }\n            }\n        ]\n    },\n    \"links\": {\n        \"self\": \"Ut eiusmod proident aliqua\",\n        \"first\": \"in consequat ad do\",\n        \"prev\": \"eu officia irure ut\",\n        \"next\": \"veniam nostrud nulla adipisicing\",\n        \"last\": \"irure d\"\n    },\n    \"meta\": {\n        \"totalRecords\": -43060393,\n        \"totalPages\": -24704647\n    }\n}",
+					"type": "object",
+					"metaName": "Body",
+					"metaDescription": "The response payload"
+				}
+			],
+			"outputs": {
+				"next": {
+					"context": "$.response",
+					"metaName": "Next"
+				}
+			},
+			"metaMethod": "Set HTTP Response"
+		}
+	}
+}

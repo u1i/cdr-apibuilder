@@ -1,0 +1,71 @@
+{
+	"schemaVersion": "4",
+	"info": {
+		"name": "listDirectDebitsSpecificAccounts"
+	},
+	"parameter": {
+		"properties": {
+			"params": {
+				"type": "object",
+				"description": "The parameters from the endpoint."
+			},
+			"request": {
+				"type": "object",
+				"description": "The HTTP request."
+			},
+			"config": {
+				"type": "object",
+				"description": "The service's configuration"
+			},
+			"env": {
+				"type": "object",
+				"description": "The host OS environment"
+			}
+		},
+		"additionalProperties": false,
+		"required": [
+			"params",
+			"request",
+			"config",
+			"env"
+		]
+	},
+	"start": "http.setresponse.1",
+	"nodes": {
+		"http.setresponse.1": {
+			"type": "nodehandler://axway-flow/http",
+			"method": "setresponse",
+			"name": "Set HTTP Response",
+			"parameters": [
+				{
+					"name": "status",
+					"value": "200",
+					"type": "number",
+					"metaName": "Status",
+					"metaDescription": "The HTTP status code"
+				},
+				{
+					"name": "headers",
+					"value": "{\n    \"x-v\": \"sit in tempor incididunt e\",\n    \"x-fapi-interaction-id\": \"deserunt\"\n}",
+					"type": "object",
+					"metaName": "Headers",
+					"metaDescription": "Key-value pairs of headers"
+				},
+				{
+					"name": "body",
+					"value": "{\n    \"data\": {\n        \"directDebitAuthorisations\": [\n            {\n                \"accountId\": \"exercitation in\",\n                \"authorisedEntity\": {\n                    \"description\": \"magna Duis\",\n                    \"financialInstitution\": \"dolor in Ut dolore\",\n                    \"abn\": \"elit dolore\",\n                    \"acn\": \"n\",\n                    \"arbn\": \"labore\"\n                },\n                \"lastDebitDateTime\": \"et dolore qui fugiat elit\",\n                \"lastDebitAmount\": \"deserunt\"\n            }\n        ]\n    },\n    \"links\": {\n        \"self\": \"enim\",\n        \"first\": \"ut in\",\n        \"prev\": \"commodo\",\n        \"next\": \"dolor Excepteur in consequat\",\n        \"last\": \"pariatur magna voluptate\"\n    },\n    \"meta\": {\n        \"totalRecords\": 69352249,\n        \"totalPages\": 71535504\n    }\n}",
+					"type": "object",
+					"metaName": "Body",
+					"metaDescription": "The response payload"
+				}
+			],
+			"outputs": {
+				"next": {
+					"context": "$.response",
+					"metaName": "Next"
+				}
+			},
+			"metaMethod": "Set HTTP Response"
+		}
+	}
+}

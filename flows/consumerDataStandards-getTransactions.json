@@ -1,0 +1,71 @@
+{
+	"schemaVersion": "4",
+	"info": {
+		"name": "getTransactions"
+	},
+	"parameter": {
+		"properties": {
+			"params": {
+				"type": "object",
+				"description": "The parameters from the endpoint."
+			},
+			"request": {
+				"type": "object",
+				"description": "The HTTP request."
+			},
+			"config": {
+				"type": "object",
+				"description": "The service's configuration"
+			},
+			"env": {
+				"type": "object",
+				"description": "The host OS environment"
+			}
+		},
+		"additionalProperties": false,
+		"required": [
+			"params",
+			"request",
+			"config",
+			"env"
+		]
+	},
+	"start": "http.setresponse.1",
+	"nodes": {
+		"http.setresponse.1": {
+			"type": "nodehandler://axway-flow/http",
+			"method": "setresponse",
+			"name": "Set HTTP Response",
+			"parameters": [
+				{
+					"name": "status",
+					"value": "200",
+					"type": "number",
+					"metaName": "Status",
+					"metaDescription": "The HTTP status code"
+				},
+				{
+					"name": "body",
+					"type": "object",
+					"value": "{\n    \"data\": {\n        \"transactions\": [\n            {\n                \"accountId\": \"8378213740271t\",\n                \"transactionId\": \"1001t\",\n                \"isDetailAvailable\": false,\n                \"type\": \"FEE\",\n                \"status\": \"PENDING\",\n                \"description\": \"payment for new gateway\",\n                \"postingDateTime\": \"2020-03-19T07:22Z\",\n                \"valueDateTime\": \"2020-03-20T07:22Z\",\n                \"executionDateTime\": \"2020-03-19T07:22Zi\",\n                \"amount\": \"10 million\",\n                \"currency\": \"AUD\",\n                \"reference\": \"new API gateway\",\n                \"merchantName\": \"patrick\",\n                \"merchantCategoryCode\": \"patrick@axway\",\n                \"billerCode\": \"10223\",\n                \"billerName\": \"axway\",\n                \"crn\": \"yes\",\n                \"apcaNumber\": \"n/a\"\n            }\n        ]\n    },\n    \"links\": {\n        \"self\": \"https://api.axway.training/oab/transactions/cds-au/v1/banking/accounts/555/transactions\",\n        \"first\": \"n/a\",\n        \"prev\": \"n/a\",\n        \"next\": \"https://api.axway.training/oab/transactions/cds-au/v1/banking/accounts/555/transactions\",\n        \"last\": \"n/a\"\n    },\n    \"meta\": {\n        \"totalRecords\": 24,\n        \"totalPages\": 1\n    }\n}",
+					"metaName": "Body",
+					"metaDescription": "The response payload"
+				},
+				{
+					"name": "headers",
+					"type": "object",
+					"value": "{\n    \"x-v\": \"2\",\n    \"x-fapi-interaction-id\": \"this is where it gets hard\"\n}",
+					"metaName": "Headers",
+					"metaDescription": "Key-value pairs of headers"
+				}
+			],
+			"outputs": {
+				"next": {
+					"context": "$.response",
+					"metaName": "Next"
+				}
+			},
+			"metaMethod": "Set HTTP Response"
+		}
+	}
+}
